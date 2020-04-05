@@ -1,9 +1,9 @@
-![Image description](https://i.ibb.co/mzXDq1t/javapp.png)
+![Image description](https://i.ibb.co/mzXDq1t/jar2app.png)
 
 
-# javapp
+# jar2app
 
-**javapp** is an extremely simple, python based, command line tool to package JAR files into Mac OS applications, based off a [tutorial](http://www.zitnik.si/wordpress/2016/02/21/creat.ing-a-mac-os-app-from-a-runnable-jar-file/) created by Slavko Žitnik.
+**jar2app** is an extremely simple, python based, command line tool to package JAR files into Mac OS applications, based off a [tutorial](http://www.zitnik.si/wordpress/2016/02/21/creat.ing-a-mac-os-app-from-a-runnable-jar-file/) created by Slavko Žitnik.
 
 ## Compatibility
 - Mac OSX
@@ -15,16 +15,16 @@
 ## Installation
 
 ```bash
-$ git clone https://github.com/dante-biase/javapp.git
-$ cd javapp
+$ git clone https://github.com/dante-biase/jar2app.git
+$ cd jar2app
 $ pip3 install -r requirements.txt
-$ chmod +x javapp.py
+$ chmod +x jar2app.py
 ```
 
 ## Usage
 
 ```bash
-$ ./javapp.py JAR_FILE [OPTIONS]
+$ ./jar2app.py JAR_FILE [OPTIONS]
 ```
 
 ### JAR_FILE
@@ -38,4 +38,4 @@ $ ./javapp.py JAR_FILE [OPTIONS]
 ```
 ### NOTES
 1. the output app will be named with the stem of `JAR_FILE`
-2. if `destination_directory` is not specified, the application will be created in `javapp/bin`
+2. if `destination_directory` is not specified, the application will be created in `jar2app/bin`
