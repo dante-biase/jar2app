@@ -24,10 +24,10 @@ $ chmod +x jar2app.py
 ## Usage
 
 ```bash
-$ ./jar2app.py JAR_FILE [OPTIONS]
+$ ./jar2app.py <JAR_FILE> [OPTIONS]
 ```
 
-### JAR_FILE
+### <JAR_FILE>
 > specifies the jar file to be converted into an application, required
 
 ### [OPTIONS]
@@ -37,5 +37,5 @@ $ ./jar2app.py JAR_FILE [OPTIONS]
   --help                                print this message and exit
 ```
 ### NOTES
-1. the output app will be named with the stem of `JAR_FILE`
+1. the output app will be named with the stem of `<JAR_FILE>`
 2. if `destination_directory` is not specified, the application will be created in `jar2app/bin`
