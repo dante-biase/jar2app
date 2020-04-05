@@ -12,7 +12,6 @@ All source code is based off [this tutorial](http://www.zitnik.si/wordpress/2016
 ```bash
 $ git clone https://github.com/dante-biase/javapp.git
 $ cd javapp
-$ pip3 install -r requirements.txt
 $ chmod +x javapp.py
 ```
 
