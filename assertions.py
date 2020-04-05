@@ -10,8 +10,8 @@ def assert_existence(path):
 
 
 def assert_is_file(path):
-    assert_existence(path)
-    if isdir(path):
+	assert_existence(path)
+	if isdir(path):
 		raise BadParameter(f"{path} is a directory.")
 
 
@@ -22,6 +22,6 @@ def assert_file_type(file_path, type_extension):
 
 
 def assert_is_dir(path):
-    assert_existence(path)
-    if not isdir(path):
+	assert_existence(path)
+	if not isdir(path):
 		raise BadParameter(f"{path} is not a directory.")
