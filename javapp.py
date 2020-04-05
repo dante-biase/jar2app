@@ -22,7 +22,7 @@ from callbacks import *
               help="what directory to create the app in")
 def main(jar_file, icon_file, destination_directory):
 	# ---------------------------------------------- setup app variables -----------------------------------------------
-	app_name = basename(jar_file).rstrip(".jar_file")
+	app_name = basename(jar_file).rstrip(".jar")
 	app_path = f"{destination_directory}/{app_name}.app"
 
 	# ------------------------------- create new app in destination folder from template -------------------------------
