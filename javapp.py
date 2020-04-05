@@ -15,11 +15,11 @@ from callbacks import *
 @click.option("-i", "--icon_file",
               default="template.app/Contents/Resources/application.icns",
               callback=check_icon_file,
-              help="what icon_file to give the app")
+              help="icon to give the app")
 @click.option("-d", "--destination_directory",
               default="bin",
               callback=check_destination_directory,
-              help="what directory to create the app in")
+              help="directory to create the app in")
 def main(jar_file, icon_file, destination_directory):
 	# ---------------------------------------------- setup app variables -----------------------------------------------
 	app_name = basename(jar_file).rstrip(".jar")
