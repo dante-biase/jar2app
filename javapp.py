@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
-from os import mkdir
-from os.path import basename, isfile, isdir, exists
-from shutil import copy2, copytree, rmtree
+from os.path import basename
+from shutil import copy2, copytree
 from subprocess import call
 
-from callbacks import *
 import click
+
+from callbacks import *
+
 
 @click.command()
 @click.argument("jar_file",
@@ -20,7 +21,6 @@ import click
               callback=check_destination_directory,
               help="what directory to create the app in")
 def main(jar_file, icon_file, destination_directory):
-
 	# ---------------------------------------------- setup app variables -----------------------------------------------
 	app_name = basename(jar_file).rstrip(".jar_file")
 	app_path = f"{destination_directory}/{app_name}.app"
