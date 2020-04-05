@@ -44,7 +44,7 @@ def main(jar_file, icon_file, destination_directory):
 	app_name = basename(jar_file).rstrip(".jar_file")
 	app_path = f"{destination_directory}/{app_name}.app"
 
-	# ------------------------------ create new app in Applications folder from template -------------------------------
+	# ------------------------------- create new app in destination folder from template -------------------------------
 	if exists(app_path):
 		overwrite = ""
 		while not (overwrite == 'y' or overwrite == 'n'):
