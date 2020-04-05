@@ -1,10 +1,10 @@
-# !/usr/bin/python3
+#!/usr/bin/python3
 
 from os import mkdir
 from os.path import basename, exists
 from shutil import copy2, copytree, rmtree
 from subprocess import call
-from sys import argv
+
 import click
 
 
@@ -22,17 +22,26 @@ def assert_destination_directory_existance(ctx, param, file_path):
 
 		mkdir("bin")
 	else:
-		assert_file_existance(ctx, param, file_path)
+		assert_input_file_existance(ctx, param, file_path)
 
 	return file_path
 
 
 @click.command()
-@click.argument("jar_file", callback=assert_input_file_existance)
-@click.option("-i", "--app_icon_file", default="template.app/Contents/Resources/application.icns", callback=assert_input_file_existance, help="what icon to give the app")
-@click.option("-d", "--app_destination_directory", default="bin", callback=assert_destination_directory_existance, help="what directory to create the app in")
-@click.option("-n", "--app_name", default=None, help="what to name the app")
-def	main(jar_file, app_icon_file, app_destination_directory, app_name):
+@click.argument("jar_file",
+                callback=assert_input_file_existance)
+@click.option("-i", "--app_icon_file",
+              default="template.app/Contents/Resources/application.icns",
+              callback=assert_input_file_existance,
+              help="what icon to give the app")
+@click.option("-d", "--app_destination_directory",
+              default="bin",
+              callback=assert_destination_directory_existance,
+              help="what directory to create the app in")
+@click.option("-n", "--app_name",
+              default=None,
+              help="what to name the app")
+def main(jar_file, app_icon_file, app_destination_directory, app_name):
 
 	# ---------------------------------------------- setup app variables -----------------------------------------------
 	if not app_name:
