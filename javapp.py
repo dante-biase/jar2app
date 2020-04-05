@@ -38,15 +38,10 @@ def assert_destination_directory_existance(ctx, param, file_path):
               default="bin",
               callback=assert_destination_directory_existance,
               help="what directory to create the app in")
-@click.option("-n", "--app_name",
-              default=None,
-              help="what to name the app")
-def main(jar_file, app_icon_file, app_destination_directory, app_name):
+def main(jar_file, app_icon_file, app_destination_directory):
 
 	# ---------------------------------------------- setup app variables -----------------------------------------------
-	if not app_name:
-		app_name = basename(jar_file).rstrip(".jar")
-
+	app_name = basename(jar_file).rstrip(".jar")
 	app_path = f"{app_destination_directory}/{app_name}.app"
 
 	# ------------------------------ create new app in Applications folder from template -------------------------------
