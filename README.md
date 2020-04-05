@@ -28,7 +28,7 @@ $ ./javapp.py JAR_FILE [OPTIONS]
 ```
 
 ### JAR_FILE
-> specifies the jar file to be converted into an application
+> specifies the jar file to be converted into an application, required
 
 ### [OPTIONS]
 ```
