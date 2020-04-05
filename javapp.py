@@ -1,42 +1,23 @@
 #!/usr/bin/python3
 
 from os import mkdir
-from os.path import basename, exists
+from os.path import basename, isfile, isdir, exists
 from shutil import copy2, copytree, rmtree
 from subprocess import call
 
+from callbacks import *
 import click
-
-
-def assert_input_file_existance(ctx, param, file_path):
-	if not exists(file_path):
-		raise click.BadParameter(f"{file_path} does not exist.")
-	else:
-		return file_path
-
-
-def assert_destination_directory_existance(ctx, param, file_path):
-	if file_path == "bin":
-		if exists("bin"):
-			rmtree("bin")
-
-		mkdir("bin")
-	else:
-		assert_input_file_existance(ctx, param, file_path)
-
-	return file_path
-
 
 @click.command()
 @click.argument("jar_file",
-                callback=assert_input_file_existance)
+                callback=check_jar_file)
 @click.option("-i", "--icon_file",
               default="template.app/Contents/Resources/application.icns",
-              callback=assert_input_file_existance,
+              callback=check_icon_file,
               help="what icon_file to give the app")
 @click.option("-d", "--destination_directory",
               default="bin",
-              callback=assert_destination_directory_existance,
+              callback=check_destination_directory,
               help="what directory to create the app in")
 def main(jar_file, icon_file, destination_directory):
 
@@ -58,7 +39,7 @@ def main(jar_file, icon_file, destination_directory):
 	copytree("template.app", app_path)
 
 	# -------------------------------------------- copy input files to app ---------------------------------------------
-	copy2(jar_file, f"{app_path}/Contents/MacOS/{app_name}.jar_file")
+	copy2(jar_file, f"{app_path}/Contents/MacOS/{app_name}.jar")
 	if icon_file:
 		copy2(icon_file, f"{app_path}/Contents/Resources/application.icns")
 
@@ -68,7 +49,7 @@ def main(jar_file, icon_file, destination_directory):
 		file_contents = file.read()
 
 	file_contents = file_contents \
-		.replace("[APP_jar_file]", f"{app_name}.jar_file") \
+		.replace("[APP_JAR]", f"{app_name}.jar") \
 		.replace("[APP_NAME]", app_name)
 
 	with open(app_runner, "br+") as file:
