@@ -28,21 +28,21 @@ def assert_destination_directory_existance(ctx, param, file_path):
 
 
 @click.command()
-@click.argument("jar_file",
+@click.argument("jar",
                 callback=assert_input_file_existance)
-@click.option("-i", "--app_icon_file",
+@click.option("-i", "--icon",
               default="template.app/Contents/Resources/application.icns",
               callback=assert_input_file_existance,
               help="what icon to give the app")
-@click.option("-d", "--app_destination_directory",
+@click.option("-d", "--destination",
               default="bin",
               callback=assert_destination_directory_existance,
               help="what directory to create the app in")
-def main(jar_file, app_icon_file, app_destination_directory):
+def main(jar, icon, destination):
 
 	# ---------------------------------------------- setup app variables -----------------------------------------------
-	app_name = basename(jar_file).rstrip(".jar")
-	app_path = f"{app_destination_directory}/{app_name}.app"
+	app_name = basename(jar).rstrip(".jar")
+	app_path = f"{destination}/{app_name}.app"
 
 	# ------------------------------ create new app in Applications folder from template -------------------------------
 	if exists(app_path):
@@ -58,9 +58,9 @@ def main(jar_file, app_icon_file, app_destination_directory):
 	copytree("template.app", app_path)
 
 	# -------------------------------------------- copy input files to app ---------------------------------------------
-	copy2(jar_file, f"{app_path}/Contents/MacOS/{app_name}.jar")
-	if app_icon_file:
-		copy2(app_icon_file, f"{app_path}/Contents/Resources/application.icns")
+	copy2(jar, f"{app_path}/Contents/MacOS/{app_name}.jar")
+	if icon:
+		copy2(icon, f"{app_path}/Contents/Resources/application.icns")
 
 	# ----------------------------------------- update arguments in app runner -----------------------------------------
 	app_runner = f"{app_path}/Contents/MacOS/runner"
