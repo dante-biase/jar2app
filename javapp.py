@@ -28,21 +28,21 @@ def assert_destination_directory_existance(ctx, param, file_path):
 
 
 @click.command()
-@click.argument("jar",
+@click.argument("jar_file",
                 callback=assert_input_file_existance)
-@click.option("-i", "--icon",
+@click.option("-i", "--icon_file",
               default="template.app/Contents/Resources/application.icns",
               callback=assert_input_file_existance,
-              help="what icon to give the app")
-@click.option("-d", "--destination",
+              help="what icon_file to give the app")
+@click.option("-d", "--destination_directory",
               default="bin",
               callback=assert_destination_directory_existance,
               help="what directory to create the app in")
-def main(jar, icon, destination):
+def main(jar_file, icon_file, destination_directory):
 
 	# ---------------------------------------------- setup app variables -----------------------------------------------
-	app_name = basename(jar).rstrip(".jar")
-	app_path = f"{destination}/{app_name}.app"
+	app_name = basename(jar_file).rstrip(".jar_file")
+	app_path = f"{destination_directory}/{app_name}.app"
 
 	# ------------------------------ create new app in Applications folder from template -------------------------------
 	if exists(app_path):
@@ -58,9 +58,9 @@ def main(jar, icon, destination):
 	copytree("template.app", app_path)
 
 	# -------------------------------------------- copy input files to app ---------------------------------------------
-	copy2(jar, f"{app_path}/Contents/MacOS/{app_name}.jar")
-	if icon:
-		copy2(icon, f"{app_path}/Contents/Resources/application.icns")
+	copy2(jar_file, f"{app_path}/Contents/MacOS/{app_name}.jar_file")
+	if icon_file:
+		copy2(icon_file, f"{app_path}/Contents/Resources/application.icns")
 
 	# ----------------------------------------- update arguments in app runner -----------------------------------------
 	app_runner = f"{app_path}/Contents/MacOS/runner"
@@ -68,7 +68,7 @@ def main(jar, icon, destination):
 		file_contents = file.read()
 
 	file_contents = file_contents \
-		.replace("[APP_JAR]", f"{app_name}.jar") \
+		.replace("[APP_jar_file]", f"{app_name}.jar_file") \
 		.replace("[APP_NAME]", app_name)
 
 	with open(app_runner, "br+") as file:
