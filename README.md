@@ -11,15 +11,15 @@ All source code is based off [this tutorial](http://www.zitnik.si/wordpress/2016
 
 ```bash
 $ git clone https://github.com/dante-biase/javapp.git
-
+$ cd javapp
+$ chmod +x javapp.py
 ```
 
 ## Usage
 
 ### Basic Usage
 ```bash
-$ cd javapp
-$ python3 javapp.py <jar_file> [<app_icon>]
+$ ./javapp.py <jar_file> [<app_icon>]
 ```
 >arguments are **ordered**.
 #### `<jar_file>`
