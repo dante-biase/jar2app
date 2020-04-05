@@ -7,32 +7,37 @@
 
 All source code is based off [this tutorial](http://www.zitnik.si/wordpress/2016/02/21/creat.ing-a-mac-os-app-from-a-runnable-jar-file/) created by Slavko Žitnik.
 
+## Compatibility
+- Mac OSX
+- Python >= 3.6
+
+## Dependencies
+- [Click](https://click.palletsprojects.com/en/7.x/#documentation)
+
 ## Installation
 
 ```bash
 $ git clone https://github.com/dante-biase/javapp.git
 $ cd javapp
+$ pip3 install -r requirements.txt
 $ chmod +x javapp.py
 ```
 
 ## Usage
 
-### Basic Usage
 ```bash
-$ ./javapp.py <jar_file> [<app_icon>]
+$ ./javapp.py JAR_FILE [OPTIONS]
 ```
->arguments are **ordered**.
-#### `<jar_file>`
-- 1st argument, required
-- specifies the jar file to convert into an application **and specifies the output-application's name**
-    + the stem of the output-application will be named with the stem of the path specified in <jar_file>
 
-#### `[<app_icon>]`
-- 2nd argument, optional
-- specifies output application's icon
-- for recommended icon specifications - size, resolution, etc. - refer to this [guide](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/app-icon/)
+### JAR_FILE
+> specifies the jar file to be converted into an application
 
-#### `output path?`
-- As of now, **the application will always be created in `/Applications`**
-- Functionality will be added in the future to specify this path
-
+### [OPTIONS]
+```
+  -i, --icon_file               TEXT    icon to give the app
+  -d, --destination_directory   TEXT    directory to create the app in
+  --help                                print this message and exit
+```
+### NOTES
+1. the output app will be named with the stem of `JAR_FILE`
+2. if `destination_directory` is not specified, the application will be created in `javapp/bin`
