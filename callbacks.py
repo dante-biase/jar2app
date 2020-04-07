@@ -15,12 +15,7 @@ def check_icon_file(ctx, param, file_path):
 
 
 def check_destination_directory(ctx, param, directory_path):
-	if exists("bin"):
-		rmtree("bin")
-
-	if directory_path == "bin":
-		mkdir("bin")
-	else:
+	if directory_path:
 		assert_is_dir(directory_path)
 
 	return directory_path

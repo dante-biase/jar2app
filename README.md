@@ -10,7 +10,7 @@
 - Python >= 3.6
 
 ## Dependencies
-- [Click](https://github.com/pallets/click)
+- [Click](https://click.palletsprojects.com/en/7.x/#documentation)
 
 ## Installation
 
@@ -38,4 +38,4 @@ $ ./jar2app.py <JAR_FILE> [OPTIONS]
 ```
 ### NOTES
 1. the output app will be named with the stem of `<JAR_FILE>`
-2. if `destination_directory` is not specified, the application will be created in `jar2app/bin`
+2. if `destination_directory` is not specified, the app will be placed in the same directory as `JAR_FILE`
