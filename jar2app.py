@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 
 from os.path import exists, dirname
+from pathlib import Path
 from shutil import copy2, copytree
 from subprocess import call
 
