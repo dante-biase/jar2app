@@ -10,7 +10,7 @@
 - Python >= 3.6
 
 ## Dependencies
-- [Click](https://click.palletsprojects.com/en/7.x/#documentation)
+- [Click](https://github.com/pallets/click)
 
 ## Installation
 
