@@ -12,22 +12,15 @@
 ## Dependencies
 - [Click](https://click.palletsprojects.com/en/7.x/#documentation)
 
-## Installation
 
-```bash
-$ git clone https://github.com/dante-biase/jar2app.git
-$ cd jar2app
-$ pip3 install -r requirements.txt
-$ chmod +x jar2app.py
-```
+## Installation and Usage
 
-## Usage
+|          	| Installation                                                                                                                          	| Usage                           	|
+|----------	|---------------------------------------------------------------------------------------------------------------------------------------	|---------------------------------	|
+| **Homebrew** 	| $ brew install dante-biase/x2x/jar2app                                                                                          	| $ jar2app JAR_FILE [OPTIONS]      	|
+| **Manual**   	| $ git clone https://github.com/dante-biase/jar2app.git<br>$ cd jar2app<br>$ pip3 install -r requirements.txt<br>$ chmod +x jar2app.py 	| $ ./jar2app.py JAR_FILE [OPTIONS] 	|
 
-```bash
-$ ./jar2app.py <JAR_FILE> [OPTIONS]
-```
-
-### <JAR_FILE>
+### JAR_FILE
 > specifies the jar file to be converted into an application, required
 
 ### [OPTIONS]
@@ -36,6 +29,6 @@ $ ./jar2app.py <JAR_FILE> [OPTIONS]
   -d, --destination_directory   TEXT    directory to create the app in
   --help                                print this message and exit
 ```
-### NOTES
-1. the output app will be named with the stem of `<JAR_FILE>`
+## NOTES
+1. the output app will be named with the stem of `JAR_FILE`
 2. if `destination_directory` is not specified, the app will be placed in the same directory as `JAR_FILE`
