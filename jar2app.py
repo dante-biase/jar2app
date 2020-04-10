@@ -1,20 +1,23 @@
 #!/usr/local/bin/python3
+import sys
+import os
 
+from os import getcwd
 from os.path import exists, dirname
 from pathlib import Path
 from shutil import copy2, copytree
 from subprocess import call
 
+from py2x import Resources
 import click
 
 from callbacks import *
-
 
 @click.command()
 @click.argument("jar_file",
                 callback=check_jar_file)
 @click.option("-i", "--icon_file",
-              default="template.app/Contents/Resources/application.icns",
+              default=None,
               callback=check_icon_file,
               help="icon to give the app")
 @click.option("-d", "--destination_directory",
@@ -42,7 +45,7 @@ def main(jar_file, icon_file, destination_directory):
 		else:
 			exit(0)
 
-	copytree("template.app", app_target_path)
+	copytree(Resources.get("template.app"), app_target_path)
 
 	# -------------------------------------------- copy input files to app ---------------------------------------------
 	copy2(jar_file, f"{app_target_path}/Contents/MacOS/{app_name}.jar")
