@@ -62,7 +62,7 @@ def main(jar_file, icon_file, destination_directory,title):
 
 	file_contents = file_contents \
 		.replace("[APP_JAR]", f"{app_name}.jar") \
-		.replace("[APP_NAME]", title if title else app_name)
+		.replace("[APP_NAME]", title if title else jar_file.stem)
 	
 	with open(app_runner, "br+") as file:
 		file.truncate(0)
