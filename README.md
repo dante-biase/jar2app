@@ -8,7 +8,7 @@
 ![](https://i.ibb.co/k82VnnG/demo.gif)
 
 ## Compatibility
-- Mac OSX
+- macOS
 - Python >= 3.6
 
 ## Dependencies
@@ -29,6 +29,7 @@
 ```
   -i, --icon_file               TEXT    icon to give the app
   -d, --destination_directory   TEXT    directory to create the app in
+  -t, --title                   TEXT    title to display in toolbar
   --help                                print this message and exit
 ```
 ## NOTES
