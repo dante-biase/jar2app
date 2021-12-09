@@ -24,7 +24,10 @@ from callbacks import *
               default=None,
               callback=check_destination_directory,
               help="directory to create the app in")
-def main(jar_file, icon_file, destination_directory):
+@click.option("-t","--title",
+			default=None,
+			help="title to display in toolbar")
+def main(jar_file, icon_file, destination_directory,title):
 	# ---------------------------------------------- setup app variables -----------------------------------------------
 	jar_file = Path(jar_file)
 	jar_file_parent_directory = Path(dirname(jar_file.absolute()))
@@ -59,12 +62,11 @@ def main(jar_file, icon_file, destination_directory):
 
 	file_contents = file_contents \
 		.replace("[APP_JAR]", f"{app_name}.jar") \
-		.replace("[APP_NAME]", app_name)
-
+		.replace("[APP_NAME]", title if title else jar_file.stem)
+	
 	with open(app_runner, "br+") as file:
 		file.truncate(0)
 		file.write(bytes(file_contents, "ascii"))
-
 	# ----------------------------------------------- show app in finder -----------------------------------------------
 	call(["open", "-R", app_target_path])
 
