@@ -1,11 +1,11 @@
-![Image description](https://i.ibb.co/mNy4nns/banner.png)
+![Image description](imgs/banner.png)
 
 
 # jar2app
 
 **jar2app** is an extremely simple, python based, command line tool to package JAR files into Mac OS applications, based off a [tutorial](http://www.zitnik.si/wordpress/2016/02/21/creating-a-mac-os-app-from-a-runnable-jar-file/) created by Slavko Žitnik.
 
-![](https://i.ibb.co/k82VnnG/demo.gif)
+![](imgs/demo.gif)
 
 ## Compatibility
 - macOS
@@ -24,7 +24,7 @@
 | **Manual**   	| $ git clone https://github.com/dante-biase/jar2app.git<br>$ cd jar2app<br>$ pip3 install -r requirements.txt<br>$ chmod +x jar2app.py 	| $ ./jar2app.py JAR_FILE [OPTIONS] 	|
 
 ### JAR_FILE
-> specifies the jar file to be converted into an application, required
+- specifies the jar file to be converted into an application, required
 
 ### [OPTIONS]
 ```
