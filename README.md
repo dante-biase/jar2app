@@ -13,6 +13,7 @@
 
 ## Dependencies
 - [Click](https://click.palletsprojects.com/en/7.x/#documentation)
+- [py2x](https://github.com/dante-biase/py2x)
 
 
 ## Installation and Usage
@@ -29,9 +30,9 @@
 ```
   -i, --icon_file               TEXT    icon to give the app
   -d, --destination_directory   TEXT    directory to create the app in
-  -t, --title                   TEXT    title to display in toolbar
+  -n, --name                    TEXT    app name
   --help                                print this message and exit
 ```
 ## NOTES
-1. the output app will be named with the stem of `JAR_FILE`
-2. if `destination_directory` is not specified, the app will be placed in the same directory as `JAR_FILE`
+1. if `name` not specified, the resultant application will be named with the stem of `JAR_FILE`
+2. if `destination_directory` not specified, the resultant application will be placed in the same directory as `JAR_FILE`

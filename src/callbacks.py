@@ -1,7 +1,7 @@
 from os import mkdir
 from shutil import rmtree
 
-from assertions import *
+from src.assertions import *
 
 
 def check_jar_file(ctx, param, file_path):
