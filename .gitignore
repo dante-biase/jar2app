@@ -2,3 +2,6 @@ __pycache__/
 bin/
 .idea/
 **/*.jar
+**/*.app
+**/*.icns
+**/jar2app
