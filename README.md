@@ -21,7 +21,7 @@
 |          	| Installation                                                                                                                          	| Usage                           	|
 |----------	|---------------------------------------------------------------------------------------------------------------------------------------	|---------------------------------	|
 | **Homebrew** 	| $ brew install dante-biase/x2x/jar2app                                                                                          	| $ jar2app JAR_FILE [OPTIONS]      	|
-| **Manual**   	| $ git clone https://github.com/dante-biase/jar2app.git<br>$ cd jar2app<br>$ pip3 install -r requirements.txt<br>$ chmod +x jar2app.py 	| $ ./jar2app.py JAR_FILE [OPTIONS] 	|
+| **Manual**   	| $ git clone https://github.com/dante-biase/jar2app.git<br>$ cd jar2app<br>$ pip3 install -r requirements.txt<br> 	| $ python3 jar2app.py JAR_FILE [OPTIONS] 	|
 
 ### JAR_FILE
 - specifies the jar file to be converted into an application, required
